@@ -40,6 +40,9 @@ cd /tmp/repo
 git branch
 pwd
 ls -a
+echo "$mailingList"
+ls "$mailingList"
+cat "$mailingList"
 
 if [[ "$mailingList" == *"://"* ]]; then
 	mailingListContent="$(curl "$mailingList")"
@@ -52,10 +55,10 @@ declare -a toNotify
 
 mkdir /tmp/validate
 cd /tmp/validate
+echo "running git init"
 git init
-echo "$mailingList"
-ls "$mailingList"
-cat "$mailingList"
+echo "Ran git init successfully.."
+echo "reading mailingListEntry"
 
 while read -r mailingListEntry; do
 	filePattern="$(echo "$mailingListEntry"|cut -d' ' -f1)"
