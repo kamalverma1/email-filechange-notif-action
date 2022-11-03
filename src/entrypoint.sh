@@ -53,6 +53,9 @@ declare -a toNotify
 mkdir /tmp/validate
 cd /tmp/validate
 git init
+echo "$mailingList"
+ls "$mailingList"
+cat "$mailingList"
 
 while read -r mailingListEntry; do
 	filePattern="$(echo "$mailingListEntry"|cut -d' ' -f1)"
